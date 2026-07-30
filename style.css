@@ -398,3 +398,32 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         bottom: 12px;
     }
 }
+
+/* --- Mobile overflow fixes --- */
+@media (max-width: 480px) {
+  /* Ensure grids collapse to single column on small phones */
+  .grid-2, .grid-3, .grid-4, .image-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce section padding and large headings */
+  section { padding: 40px 4%; }
+  .header-home { padding: 0 12px; }
+  .header-home h1 { font-size: 2rem; }
+  .page-header h1 { font-size: 1.8rem; }
+
+  /* Prevent long words or unbroken content from overflowing */
+  .intro-copy, .card-copy, p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Make images and media scale down */
+  img, iframe, embed, object, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Hide accidental horizontal overflow */
+  html, body { max-width: 100%; overflow-x: hidden; }
+}
