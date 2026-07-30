@@ -335,6 +335,10 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
 }
 
 @media (max-width: 640px) {
+    body {
+        padding-top: 90px;
+    }
+
     header {
         height: auto;
         padding: 12px 5%;
@@ -344,6 +348,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
 
     .logo {
         font-size: 1.05rem;
+        line-height: 1.2;
     }
 
     .nav-container {
@@ -359,22 +364,88 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
     }
 
     .dropdown {
-        width: 100%;
+        width: auto;
+        align-self: flex-start;
     }
 
     .dropbtn {
-        width: 100%;
+        width: auto;
+        min-width: 120px;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 8px 12px;
+        font-size: 13px;
     }
 
     .dropdown-content {
         display: none;
-        position: static;
-        width: 100%;
-        margin-top: 8px;
+        position: absolute;
+        left: 0;
+        right: auto;
+        top: calc(100% + 6px);
+        width: min(180px, 78vw);
+        margin-top: 0;
         border: 1px solid #e3e7eb;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .dropdown-content a {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .header-home {
+        height: auto;
+        min-height: 85vh;
+        padding: 80px 16px 60px;
+        margin-top: -90px;
+    }
+
+    .header-home h1 {
+        font-size: 2.1rem;
+        line-height: 1.2;
+    }
+
+    .header-home p {
+        font-size: 1rem !important;
+        padding: 0 8px;
+    }
+
+    .page-header h1 {
+        font-size: 2.1rem;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 13px 18px;
+    }
+
+    .header-home > div {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px !important;
+    }
+
+    .image-card img {
+        height: 180px;
     }
 
     .dropdown:hover .dropdown-content,
@@ -397,33 +468,4 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         left: 12px;
         bottom: 12px;
     }
-}
-
-/* --- Mobile overflow fixes --- */
-@media (max-width: 480px) {
-  /* Ensure grids collapse to single column on small phones */
-  .grid-2, .grid-3, .grid-4, .image-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Reduce section padding and large headings */
-  section { padding: 40px 4%; }
-  .header-home { padding: 0 12px; }
-  .header-home h1 { font-size: 2rem; }
-  .page-header h1 { font-size: 1.8rem; }
-
-  /* Prevent long words or unbroken content from overflowing */
-  .intro-copy, .card-copy, p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
-  /* Make images and media scale down */
-  img, iframe, embed, object, video {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Hide accidental horizontal overflow */
-  html, body { max-width: 100%; overflow-x: hidden; }
 }
