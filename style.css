@@ -7,7 +7,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-body { line-height: 1.6; color: var(--text-dark); padding-top: 70px; background: #fff; }
+body { line-height: 1.6; color: var(--text-dark); padding-top: 70px; background: #fff; text-align: left; }
 body.bg-light { background: var(--light-bg); }
 body.bg-contact {
     min-height: 100vh;
@@ -69,6 +69,19 @@ header {
 /* --- Global Sections & Grids --- */
 section { padding: 80px 10%; }
 .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; font-weight: 800; color: var(--nav-bg); }
+section p,
+section li,
+section h3,
+section h4 {
+    text-align: left;
+}
+section .section-title,
+section .card,
+section .image-card,
+section .contact-intro,
+section .contact-card {
+    text-align: center;
+}
 
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; align-items: center; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
@@ -423,6 +436,13 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
 
     .section-title {
         font-size: 1.8rem;
+    }
+
+    section p,
+    section li,
+    section h3,
+    section h4 {
+        text-align: center;
     }
 
     .grid-2,
