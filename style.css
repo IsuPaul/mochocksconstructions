@@ -48,7 +48,8 @@ header {
 }
 .dropdown-content a { color: #333; padding: 12px 16px; display: block; font-size: 14px; }
 .dropdown-content a:hover { background-color: #eee; color: var(--accent-orange); }
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content { display: block; }
 
 /* --- Page Headers --- */
 .page-header { text-align: center; color: white; }
@@ -334,6 +335,53 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
 }
 
 @media (max-width: 640px) {
+    header {
+        height: auto;
+        padding: 12px 5%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    .nav-container {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropbtn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: static;
+        width: 100%;
+        margin-top: 8px;
+        border: 1px solid #e3e7eb;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+
     .section-contact {
         padding: 90px 4% 90px;
     }
