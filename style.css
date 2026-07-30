@@ -40,7 +40,7 @@ header {
 .dropdown { position: relative; display: inline-block; }
 .dropbtn {
     background: var(--accent-orange); color: var(--nav-bg); padding: 2px 7px;
-    font-size: 14px; border: none; cursor: pointer; border-radius: 1px; font-weight: 700;
+    font-size: 14px; border: none; cursor: pointer; border-radius: 4px; font-weight: 700;
 }
 .dropdown-content {
     display: none; position: absolute; right: 0; background-color: #f9f9f9;
