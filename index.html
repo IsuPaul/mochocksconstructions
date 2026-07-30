@@ -12,13 +12,13 @@
 
     <!-- Header Navigation -->
     <header>
-        <div class="logo">MOCHOCKS<span>CONSTRUCTIONS</span></div>
+        <a href="index.html" class="brand-link">
+            <img src="com_logo.jpg" alt="Mochocks Construction Concepts Limited logo" class="brand-logo">
+            <span class="brand-label"><span class="brand-part-one">Mochocks Construction</span> <span class="brand-part-two">Concepts Limited</span></span>
+        </a>
         <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="index.html" style="color: var(--accent-orange);">Home</a></li>
-            </ul>
             <div class="dropdown">
-                <button class="dropbtn"><i class="fa fa-chevron-down"></i></button>
+                <button class="dropbtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
                 <div class="dropdown-content">
                     <a href="about.html">About Us</a>
                     <a href="values.html">Core Values</a>
@@ -32,10 +32,10 @@
     <!-- Hero Landing -->
     <div class="page-header header-home">
         <h1>Crafting the Future of Infrastructure</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;">Innovation, Integrity, and Excellence in every structure.</p>
-        <div style="display: flex; gap: 20px;">
-            <a href="services.html" class="btn">Explore Services</a>
-            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+        <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;">Innovation, Integrity, and Excellence in every brick.</p>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <a href="services.html" class="btn" style="min-width: 190px; text-align: center;">Explore Services</a>
+            <a href="contact.html" class="btn btn-outline" style="min-width: 190px; text-align: center;">Get in Touch</a>
         </div>
     </div>
 
@@ -45,10 +45,13 @@
             <div>
                 <h2 style="font-size: 2.5rem; color: var(--nav-bg); margin-bottom: 20px; font-weight: 800;">About Us</h2>
                 <p style="font-size: 1.1rem; color: #555; margin-bottom: 20px;">Mochocks Construction Concepts bridges the gap between complex structural engineering and practical, on-site execution. From specialized commercial builds to high-end residential complexes, our legacy is built on a foundation of uncompromising quality and robust safety protocols.</p>
-                <a href="about.html" class="btn">Discover Our Story</a>
+                <a href="about.html" class="btn">More...</a>
             </div>
             <div>
-                <img src="Home_pic.jpg" alt="Construction Site" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+                <div class="slideshow-single" style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+                    <img src="Front1.PNG" alt="Construction Site" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    <img src="Front2.PNG" alt="Construction Site" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </div>
             </div>
         </div>
     </section>
@@ -71,7 +74,7 @@
             <div class="card">
                 <i class="fas fa-lightbulb" style="font-size: 3rem; color: var(--accent-orange); margin-bottom: 20px;"></i>
                 <h3>Innovation</h3>
-                <p style="margin-top: 10px;">Embracing modern engineering methodologies for superior durability and efficiency.</p>
+                <p style="margin-top: 10px;">Adoption of modern architectural and engineering methodologies for superior durability and efficiency.</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
@@ -85,18 +88,18 @@
         <div class="grid-3">
             <div class="card card-services">
                 <i class="fas fa-city" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
-                <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Commercial Builds</h3>
+                <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Building Construction</h3>
                 <p>Complete ground-up development for office complexes and industrial facilities.</p>
             </div>
             <div class="card card-services">
                 <i class="fas fa-cube" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
-                <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Advanced Materials</h3>
-                <p>Adoption of energy efficient building materials for structural sustainability in constructions.</p>
+                <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Advanced Construction</h3>
+                <p>Safe borehole drilling and modern swimming pool construction</p>
             </div>
             <div class="card card-services">
                 <i class="fas fa-road" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
                 <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Civil Infrastructure</h3>
-                <p>Heavy earthwork, retaining walls, and utility installations designed for longevity.</p>
+                <p>Real estate development and land purchase</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
@@ -108,12 +111,24 @@
         <h2 class="section-title">Project Highlights</h2>
         <div class="image-grid">
             <div class="image-card">
-                <img src="Foundation_pic.jpg" alt="Foundation work in progress">
-                <h4>Foundation Work</h4>
+                <div class="slideshow">
+                    <img src="Column_pic2.jpg" alt="Gallery">
+                    <img src="Highlight1.PNG" alt="Project highlight one">
+                    <img src="Highlight2.PNG" alt="Project highlight two">
+                    <img src="Gallery_pic.jpg" alt="Gallery image">
+                    <img src="Column_pic.jpg" alt="Construction progress and planning">
+                </div>
+                <h4>Our Trademark Projects</h4>
                 <p>Strong, expertly prepared groundwork that supports every structure we build.</p>
             </div>
             <div class="image-card">
-                <img src="Home_pic.jpg" alt="Construction progress and planning">
+                <div class="slideshow">
+                    <img src="Foundation_pic.jpg" alt="Foundation">
+                    <img src="Highlight3.PNG" alt="Project highlight three">
+                    <img src="Highlight4.PNG" alt="Project highlight four">
+                    <img src="Service_pic.jpg" alt="Service showcase">
+                    <img src="Front1.PNG" alt="Construction site overview">
+                </div>
                 <h4>Built with Precision</h4>
                 <p>Every phase is coordinated with modern planning and durable execution.</p>
             </div>
@@ -135,10 +150,10 @@
                 <div class="logo" style="margin-bottom: 20px;">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
                 <p style="font-size: 0.9rem; margin-bottom: 20px;">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/bldr-aliyu-mustapha-863a98b1/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BDidrW4V2QxCbMGUSMFq9VA%3D%3D"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/mochocks_constructionconcepts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100063784490298"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
 
@@ -157,19 +172,19 @@
             <div class="footer-col">
                 <h4>Our Services</h4>
                 <ul>
-                    <li><a href="services.html">Commercial Development</a></li>
-                    <li><a href="services.html">Smart Concrete Solutions</a></li>
-                    <li><a href="services.html">Civil Infrastructure</a></li>
-                    <li><a href="services.html">Mechanical Testing Analysis</a></li>
+                    <li><a href="services.html">Building Construction, Lanscaping and Renovation</a></li>
+                    <li><a href="services.html">Land Purchase</a></li>
+                    <li><a href="services.html">Real Estate Development and Facility Management</a></li>
+                    <li><a href="services.html">Swimming Pool and Bore Hole Drilling</a></li>
                 </ul>
             </div>
 
             <!-- Column 4: Contact Info -->
             <div class="footer-col footer-contact-info">
                 <h4>Get In Touch</h4>
-                <p><i class="fas fa-map-marker-alt"></i> 124 Engineering Crescent, Central Business District, Abuja, FCT, Nigeria</p>
-                <p><i class="fas fa-phone-alt"></i> +234 (0) 800 MOCHOCKS</p>
-                <p><i class="fas fa-envelope"></i> estimates@mochocks.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Brickcity Estate, Kubwa, Abuja, FCT, Nigeria</p>
+                <p><i class="fas fa-phone-alt"></i> +234 808-8888-311 MOCHOCKS</p>
+                <p><i class="fas fa-envelope"></i> mochocks@yahoo.com</p>
             </div>
         </div>
 
