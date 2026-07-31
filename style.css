@@ -493,6 +493,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 10px;
+        margin-left: auto;
     }
 
     .nav-links {
@@ -543,7 +544,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         height: auto;
         padding: 12px 5%;
         flex-wrap: wrap;
-        font-size: auto;
+        font-size: 16px;
     }
 
     .header-home h1 {
