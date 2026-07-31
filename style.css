@@ -24,20 +24,34 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 /* --- Navigation --- */
 header {
-    background-color: var(--nav-bg); padding: 0 5%;
+    background-color: var(--nav-bg); padding: 0 0;
     display: flex; justify-content: space-between; align-items: center;
     position: fixed; width: 100%; top: 0; z-index: 1000;
-    height: 70px; box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    height: 60px; box-shadow: 0 2px 15px rgba(0,0,0,0.2);
 }
-.brand-link { display: flex; align-items: center; gap: 12px; color: var(--text-light); font-weight: 700; }
-.brand-logo { height: 70px; width: auto; display: block; border-radius: 8px; }
-.brand-label { font-size: 2rem; white-space: nowrap; color: #c396c7; }
+.brand-link { 
+    display: flex; align-items: center; gap: 12px; color: var(--text-light); font-weight: 700;
+}
+.brand-logo { 
+    height: 50px;
+    order: 1;
+    margin-right: 0px;
+    margin-left: 1px;
+    /*height: 70px; width: auto; display: block; border-radius: 8px;*/ }
+.brand-label { 
+    order: 3;
+    flex-basis: 100%;
+    display: flex;
+    margin-top: 10px;
+    font-weight: 800;
+    font-size: 1.6rem;
+    text-transform: uppercase;/*font-size: 2rem; white-space: nowrap; color: #c396c7;*/ }
 .brand-part-one { color: #46cddf; }
 .brand-part-two { color: #ffffff; }
 .brand-link:hover .brand-label { color: #8f5656; }
 .brand-link:hover .brand-part-one { color: #15635f; }
 .brand-link:hover .brand-part-two { color: #b0e51e; }
-.nav-container { display: flex; align-items: center; gap: 20px; }
+.nav-container { order: 2;/*display: flex; align-items: center; gap: 20px;*/ }
 .nav-links { list-style: none; display: flex; gap: 20px; }
 .nav-links li a { color: var(--text-light); font-weight: 600; }
 .nav-links li a:hover { color: var(--accent-orange); }
@@ -45,8 +59,12 @@ header {
 /* --- Dropdown --- */
 .dropdown { position: relative; display: inline-block; }
 .dropbtn {
-    background: var(--nav-bg); color: var(--text-light); padding: 8px 15px;
-    font-size: 14px; border: 1px solid rgba(255,255,255,0.18); cursor: pointer; border-radius: 4px; font-weight: 700;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;/*background: var(--nav-bg); color: var(--text-light); padding: 8px 15px;
+    font-size: 14px; border: 1px solid rgba(255,255,255,0.18); cursor: pointer; border-radius: 4px; font-weight: 700;*/
 }
 .dropdown-content {
     display: none; position: absolute; right: 0; background-color: #EAF7FF;
@@ -73,7 +91,7 @@ header {
 .header-services { background: linear-gradient(rgba(44,62,80,0.8), rgba(44,62,80,0.8)), url('Service_pic.jpg') center/cover; padding: 120px 10%; }
 
 /* --- Global Sections & Grids --- */
-section { padding: 80px 10%; }
+section { padding: 60px 5%; }
 .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; font-weight: 800; color: var(--nav-bg); }
 section p,
 section li,
@@ -90,13 +108,13 @@ section .contact-card {
 }
 
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; align-items: center; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.grid-3 {  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; /*display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; */}
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
 
 /* --- Cards --- */
 .card {
-    background: white; padding: 40px 30px; border-radius: 12px; text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid var(--accent-orange);
+    padding: 30px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;/*background: white; padding: 40px 30px; border-radius: 12px; text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid var(--accent-orange);*/
 }
 .card:hover { transform: translateY(-5px); }
 .card-services { background: #F4F7F6; border-bottom: none; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; }
@@ -477,15 +495,13 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
     }
 
     header {
-        height: 120px;
-        padding: 12px 5%;
-        flex-wrap: wrap;
-        gap: 2px;
+        height: 60px;
+        padding: 0.5px 0.5px;
     }
 
     .logo {
-        height: 70px;
-        margin-left: 0;
+        font-size: 1.05rem;
+        line-height: 1.2;
     }
 
     .nav-container {
@@ -522,7 +538,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         left: 0;
         right: auto;
         top: calc(100% + 6px);
-        width: min(100px, 78vw);
+        width: min(180px, 78vw);
         margin-top: 0;
         border: 1px solid #e3e7eb;
         border-radius: 10px;
@@ -541,10 +557,8 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         margin-top: -90px;
     }
     .brand-label{
-        height: auto;
-        padding: 5px 0%;
-        flex-wrap: wrap;
-        font-size: 13px;
+        padding: 1px 0%;
+        font-size: 14px;
     }
     .brand-part-one{
         height: auto;
