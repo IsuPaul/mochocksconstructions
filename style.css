@@ -477,15 +477,15 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
     }
 
     header {
-        height: auto;
+        height: 70px;
         padding: 12px 5%;
         flex-wrap: wrap;
         gap: 10px;
     }
 
     .logo {
-        font-size: 1.05rem;
-        line-height: 1.2;
+        height: 70px;
+        margin-left: 0;
     }
 
     .nav-container {
@@ -522,7 +522,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         left: 0;
         right: auto;
         top: calc(100% + 6px);
-        width: min(180px, 78vw);
+        width: min(100px, 78vw);
         margin-top: 0;
         border: 1px solid #e3e7eb;
         border-radius: 10px;
@@ -544,7 +544,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         height: auto;
         padding: 5px 0%;
         flex-wrap: wrap;
-        font-size: 12px;
+        font-size: 13px;
     }
     .brand-part-one{
         height: auto;
