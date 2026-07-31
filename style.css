@@ -502,7 +502,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
 
     .dropdown {
         width: auto;
-        align-self: flex-end;
+        margin-left: auto;
     }
 
     .dropbtn {
@@ -543,7 +543,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
         height: auto;
         padding: 12px 5%;
         flex-wrap: wrap;
-        font-size: 6px;
+        font-size: auto;
     }
 
     .header-home h1 {
