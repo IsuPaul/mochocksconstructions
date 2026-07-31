@@ -477,10 +477,10 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
     }
 
     header {
-        height: 70px;
+        height: 120px;
         padding: 12px 5%;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 2px;
     }
 
     .logo {
