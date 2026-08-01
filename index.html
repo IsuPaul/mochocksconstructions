@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Mochocks Construction Concepts</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -21,8 +22,8 @@
                 <button class="dropbtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
                 <div class="dropdown-content">
                     <a href="about.html">About Us</a>
-                    <a href="values.html">Core Values</a>
                     <a href="services.html">Services</a>
+                    <a href="values.html">Core Values</a>
                     <a href="contact.html">Contact Us</a>
                 </div>
             </div>
@@ -31,11 +32,17 @@
 
     <!-- Hero Landing -->
     <div class="page-header header-home">
+        <div class="hero-landing-slideshow" aria-hidden="true">
+            <div class="hero-landing-slide hero-landing-slide-one active"></div>
+            <div class="hero-landing-slide hero-landing-slide-two"></div>
+            <div class="hero-landing-slide hero-landing-slide-three"></div>
+            <div class="hero-landing-slide hero-landing-slide-four"></div>
+        </div>
         <h1>Crafting the Future of Infrastructure</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;">Innovation, Integrity, and Excellence in every brick.</p>
-        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-            <a href="services.html" class="btn" style="min-width: 190px; text-align: center;">Explore Services</a>
-            <a href="contact.html" class="btn btn-outline" style="min-width: 190px; text-align: center;">Get in Touch</a>
+        <p class="hero-subtitle">Integrity, Quality, and Innovation in every execution.</p>
+        <div class="hero-actions">
+            <a href="services.html" class="btn hero-button">Explore Services</a>
+            <a href="contact.html" class="btn btn-outline hero-button">Get in Touch</a>
         </div>
     </div>
 
@@ -43,42 +50,151 @@
     <section>
         <div class="grid-2">
             <div>
-                <h2 style="font-size: 2.5rem; color: var(--nav-bg); margin-bottom: 20px; font-weight: 800;">About Us</h2>
-                <p style="font-size: 1.1rem; color: #555; margin-bottom: 20px;">Mochocks Construction Concepts bridges the gap between complex structural engineering and practical, on-site execution. From specialized commercial builds to high-end residential complexes, our legacy is built on a foundation of uncompromising quality and robust safety protocols.</p>
-                <a href="about.html" class="btn">More...</a>
-            </div>
-            <div>
-                <div class="slideshow-single" style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
-                    <img src="Front1.PNG" alt="Construction Site" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    <img src="Front2.PNG" alt="Construction Site" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <h2 class="about-summary-title">About Us</h2>
+                <div class="slideshow-single">
+                    <img src="Front1.PNG" alt="Construction Site">
+                    <img src="Front2.PNG" alt="Construction Site">
+                    <img src="Founder.jpg" alt="CEO Photo">
                 </div>
+                <p class="about-summary-copy">Mochocks Construction Concepts bridges the gap between complex structural engineering and practical, on-site execution. From specialized commercial builds to high-end residential complexes, our legacy is built on a foundation of uncompromising quality and robust safety protocols.</p>
+                <a href="about.html" class="btn">More...</a>
             </div>
         </div>
     </section>
 
+
+
+    <!--This is mimicking something-->
+        <main>
+        <!-- Dynamic Slideshow Hero Section -->
+        <section class="hero-section">
+            
+            <!-- Slideshow Image Container -->
+            <div class="slideshow-container">
+                <div class="slide slide-project-one active"></div>
+                <div class="slide slide-project-two"></div>
+                <div class="slide slide-project-three"></div>
+            </div>
+
+            <!-- Dynamic Text Content -->
+            <div class="hero-content">
+                <h1 id="hero-title">Framed Structure</h1>
+                <p id="hero-subtitle">To be listed</p>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn primary">Order Now</a>
+                <a href="services.html" class="btn secondary">Learn More</a>
+            </div>
+
+            <!-- Slideshow Indicators (Dots) -->
+            <div class="slide-indicators">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Advert Placement-->
+    <section>
+        <div class="ad-carousel-container">
+  <!-- Slide 1 -->
+  <div class="ad-slide active">
+    <img src="First.jpg" alt="Advert Image 1">
+    <div class="ad-caption">Multi-storey building construction with blockwork and reinforced columns.</div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="ad-slide">
+    <img src="Second.jpg" alt="Advert Image 2">
+    <div class="ad-caption">Exterior plastering and scaffolding during building finishing works.</div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="ad-slide">
+    <img src="Third.jpg" alt="Advert Image 3">
+    <div class="ad-caption">Modern residential development nearing completion.</div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="ad-slide">
+    <img src="Fourth.jpg" alt="Advert Image 4">
+    <div class="ad-caption">Concrete roof slab construction with service pipe installations.</div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="ad-slide">
+    <img src="Fifth.jpg" alt="Advert Image 5">
+    <div class="ad-caption">Multi-level structural development with ongoing blockwork.</div>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="ad-slide">
+    <img src="Sixth.jpg" alt="Advert Image 6">
+    <div class="ad-caption">Large-scale building construction supported by extensive scaffolding.</div>
+  </div>
+
+  <!-- Slide 7 -->
+  <div class="ad-slide">
+    <img src="Seventh.jpg" alt="Advert Image 7">
+    <div class="ad-caption">Residential building development with masonry and concrete framing.</div>
+  </div>
+
+  <!-- Slide 8 -->
+  <div class="ad-slide">
+    <img src="Eighth.jpg" alt="Advert Image 8">
+    <div class="ad-caption">Blockwork construction of a spacious multi-storey building.</div>
+  </div>
+
+  <!-- Slide 9 -->
+  <div class="ad-slide">
+    <img src="Nineth.jpg" alt="Advert Image 9">
+    <div class="ad-caption">Contemporary apartment building with completed exterior finishes.</div>
+  </div>
+
+  <!-- Slide 10 -->
+  <div class="ad-slide">
+    <img src="Tenth.jpg" alt="Advert Image 10">
+    <div class="ad-caption">Residential construction featuring elevated water storage facilities.</div>
+  </div>
+
+  <!-- Navigation Controls -->
+  <button class="ad-nav-btn prev-btn">&#10094;</button>
+  <button class="ad-nav-btn next-btn">&#10095;</button>
+</div>
+
+    </section>
+
+    <!-- Advert Placement-->
+
     <!-- Core Values Summary Section -->
     <section class="bg-alt">
         <h2 class="section-title">Our Core Values</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto; color: #555;">The principles that dictate every architectural draft, material selection, and site operation.</p>
+        <p class="section-intro">The principles that dictate every architectural draft, material selection, and site operation.</p>
         <div class="grid-3">
             <div class="card">
-                <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--accent-orange); margin-bottom: 20px;"></i>
+                <i class="fas fa-shield-alt value-icon"></i>
                 <h3>Integrity</h3>
-                <p style="margin-top: 10px;">Unwavering ethical conduct in all client communications and structural assessments.</p>
+                <img src="Value_pic.jpg" alt="Integrity" class="value-card-image">
+                <p class="card-copy-offset">Unwavering ethical conduct in all client communications and structural assessments.</p>
             </div>
             <div class="card">
-                <i class="fas fa-hard-hat" style="font-size: 3rem; color: var(--accent-orange); margin-bottom: 20px;"></i>
+                <i class="fas fa-hard-hat value-icon"></i>
                 <h3>Quality</h3>
-                <p style="margin-top: 10px;">Premium sourcing and master craftsmanship engineered to outlast generations.</p>
+                <img src="Value_pic2.jpg" alt="Quality" class="value-card-image">
+                <p class="card-copy-offset">Premium sourcing and master craftsmanship engineered to outlast generations.</p>
             </div>
             <div class="card">
-                <i class="fas fa-lightbulb" style="font-size: 3rem; color: var(--accent-orange); margin-bottom: 20px;"></i>
+                <i class="fas fa-lightbulb value-icon"></i>
                 <h3>Innovation</h3>
-                <p style="margin-top: 10px;">Adoption of modern architectural and engineering methodologies for superior durability and efficiency.</p>
+                <img src="Value_pic3.jpg" alt="Innovation" class="value-card-image">
+                <p class="card-copy-offset">Adoption of modern architectural and engineering methodologies for superior durability and efficiency.</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="values.html" class="btn btn-outline" style="color: var(--nav-bg); border-color: var(--nav-bg);">View All Values</a>
+        <div class="section-action">
+            <a href="values.html" class="btn btn-outline values-button">View All Values</a>
         </div>
     </section>
 
@@ -87,22 +203,22 @@
         <h2 class="section-title">Our Services</h2>
         <div class="grid-3">
             <div class="card card-services">
-                <i class="fas fa-city" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
-                <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Building Construction</h3>
+                <h3 class="service-title">Building Construction</h3>
+                <img src="D1.jpg" alt="Building Construction" class="value-card-image">
                 <p>Complete ground-up development for office complexes and industrial facilities.</p>
             </div>
             <div class="card card-services">
-                <i class="fas fa-cube" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
-                <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Advanced Construction</h3>
+                <h3 class="service-title">Advanced Construction</h3>
+                <img src="D2.jpg" alt="Advanced Construction" class="value-card-image">
                 <p>Safe borehole drilling and modern swimming pool construction</p>
             </div>
             <div class="card card-services">
-                <i class="fas fa-road" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
-                <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Civil Infrastructure</h3>
+                <h3 class="service-title">Civil Infrastructure</h3>
+                <img src="D3.jpg" alt="Civil Infrastructure" class="value-card-image">
                 <p>Real estate development and land purchase</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 40px;">
+        <div class="section-action">
             <a href="services.html" class="btn">Explore All Services</a>
         </div>
     </section>
@@ -118,7 +234,7 @@
                     <img src="Gallery_pic.jpg" alt="Gallery image">
                     <img src="Column_pic.jpg" alt="Construction progress and planning">
                 </div>
-                <h4>Our Trademark Projects</h4>
+                <h4>Our Landemark Projects</h4>
                 <p>Strong, expertly prepared groundwork that supports every structure we build.</p>
             </div>
             <div class="image-card">
@@ -136,9 +252,9 @@
     </section>
 
     <!-- Contact CTA Section -->
-    <section class="bg-dark" style="text-align: center; padding: 100px 10%;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Break Ground?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 40px; color: #bdc3c7; max-width: 600px; margin-left: auto; margin-right: auto;">Our engineering and project management teams are ready to bring your structural vision to reality.</p>
+    <section class="bg-dark cta-section">
+        <h2 class="cta-title">Ready to Break Ground?</h2>
+        <p class="cta-copy">Our engineering and project management teams are ready to bring your structural vision to reality.</p>
         <a href="contact.html" class="btn">Request a Consultation</a>
     </section>
 
@@ -147,11 +263,11 @@
         <div class="grid-4">
             <!-- Column 1: Brand Info -->
             <div class="footer-col">
-                <div class="logo" style="margin-bottom: 20px;">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
-                <p style="font-size: 0.9rem; margin-bottom: 20px;">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
+                <div class="logo footer-logo">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
+                <p class="footer-description">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/bldr-aliyu-mustapha-863a98b1/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BDidrW4V2QxCbMGUSMFq9VA%3D%3D"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-twitter"></i></a>
+                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-x-twitter"></i></a>
                     <a href="https://www.instagram.com/mochocks_constructionconcepts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=100063784490298"><i class="fab fa-facebook-f"></i></a>
                 </div>
@@ -189,7 +305,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Mochocks Construction Concepts. All rights reserved. | <a href="#" style="color: var(--accent-orange);">Privacy Policy</a></p>
+            <p>&copy; 2026 Mochocks Construction Concepts. All rights reserved. | <a href="#" class="privacy-link">Privacy Policy</a></p>
         </div>
     </footer>
 

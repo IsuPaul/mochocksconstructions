@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Mochocks Construction Concepts</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -20,8 +21,8 @@
                 <button class="dropbtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
                 <div class="dropdown-content">
                     <a href="about.html">About Us</a>
-                    <a href="values.html">Core Values</a>
                     <a href="services.html">Services</a>
+                    <a href="values.html">Core Values</a>
                     <a href="contact.html">Contact Us</a>
                 </div>
             </div>
@@ -36,18 +37,81 @@
         <h2 class="section-title">Specialized Capabilities</h2>
         <div class="grid-3">
             <div class="card card-services">
-                <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 15px;">Building Construction, Landscaping & Renovation</h3>
+                <h3 class="service-card-title">Building Construction, Landscaping & Renovation</h3>
                 <p>From elegant residential upgrades to modern commercial builds, we create durable, attractive spaces that stand out and last. Our team delivers quality workmanship, smart planning, and dependable execution.</p>
             </div>
             <div class="card card-services">
-                <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 15px;">Land Purchase & Real Estate Development</h3>
+                <h3 class="service-card-title">Land Purchase & Real Estate Development</h3>
                 <p>We help clients secure promising land and turn it into valuable real estate opportunities through thoughtful development and professional project coordination.</p>
             </div>
             <div class="card card-services">
-                <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 15px;">Facility Management, Swimming Pools & Borehole Drilling</h3>
+                <h3 class="service-card-title">Facility Management, Swimming Pools & Borehole Drilling</h3>
                 <p>We provide practical facility support and specialized solutions for water access and leisure spaces, helping properties stay functional, attractive, and ready for modern living.</p>
             </div>
         </div>
+    </section>
+
+    <section class="building-projects-section">
+        <h2 class="section-title">Building Projects</h2>
+        <section class="hero-section">
+            <div class="slideshow-container">
+                <div class="slide active" data-image="A1.jpg" data-title="Contemporary Residence" data-subtitle="A refined residential exterior with modern lines and finished landscaping."></div>
+                <div class="slide" data-image="A2.jpg" data-title="Modern Residential Build" data-subtitle="A completed home combining spacious balconies with elegant exterior finishes."></div>
+                <div class="slide" data-image="A3.jpg" data-title="Residential Exterior Finishing" data-subtitle="A carefully finished home with balanced architectural details and outdoor planting."></div>
+                <div class="slide" data-image="A4.jpg" data-title="Completed Estate Development" data-subtitle="A finished residential property presented with secure boundaries and a clean frontage."></div>
+                <div class="slide" data-image="B01.jpg" data-title="Multi-Storey Blockwork" data-subtitle="A major building structure taking shape through reinforced blockwork construction."></div>
+                <div class="slide" data-image="B0.jpg" data-title="Structural Wall Construction" data-subtitle="Early-stage masonry work forming the walls and openings of a multi-level building."></div>
+                <div class="slide" data-image="B1.jpg" data-title="Building Frame Progress" data-subtitle="Ongoing construction with concrete columns, blockwork, and timber supports in place."></div>
+                <div class="slide" data-image="B2.jpg" data-title="Roof Framing Stage" data-subtitle="A growing building with roof trusses and structural framing ready for the next phase."></div>
+                <div class="slide" data-image="B3.jpg" data-title="Roofed Building Structure" data-subtitle="A multi-storey project progressing with roof installation and exterior wall works."></div>
+                <div class="slide" data-image="B4.jpg" data-title="Modern Home Construction" data-subtitle="A contemporary residential structure moving toward final architectural finishes."></div>
+                <div class="slide" data-image="C0.jpg" data-title="Foundation Excavation" data-subtitle="Prepared trenches and reinforcement cages establishing the foundation layout."></div>
+                <div class="slide" data-image="C1.jpg" data-title="Foundation Wall Works" data-subtitle="Foundation walls and waterproofing works creating a durable base for the building."></div>
+                <div class="slide" data-image="C2.jpg" data-title="Foundation Preparation" data-subtitle="Ground preparation and reinforcement setting the stage for concrete foundation work."></div>
+                <div class="slide" data-image="C3.jpg" data-title="Architectural Building Concept" data-subtitle="A modern residential design visualized with strong form, glazing, and outdoor space."></div>
+                <div class="slide" data-image="Ground1.jpg" data-title="Groundwork and Footings" data-subtitle="Excavated footing trenches and reinforcement prepared for structural foundations."></div>
+                <div class="slide" data-image="Ground2.jpg" data-title="Foundation Waterproofing" data-subtitle="Waterproofed foundation walls and active site work supporting long-term durability."></div>
+                <div class="slide" data-image="Ground3.jpg" data-title="Foundation Slab Preparation" data-subtitle="Workers prepare the ground slab with reinforcement, services, and protective sheeting."></div>
+                <div class="slide" data-image="Home_pic2.jpg" data-title="Apartment Development Concept" data-subtitle="A multi-unit residential concept designed for comfortable, modern community living."></div>
+                <div class="slide" data-image="Home_pic3.jpg" data-title="Residential Construction Progress" data-subtitle="A multi-storey building advancing through blockwork and roof construction."></div>
+                <div class="slide" data-image="Home_pic4.jpg" data-title="Building Structure in Progress" data-subtitle="A substantial residential project showing completed walls and ongoing construction details."></div>
+            </div>
+
+            <div class="hero-content">
+                <h1 id="hero-title">Structural Framing</h1>
+                <p id="hero-subtitle">Lease From $459/mo</p>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn primary">Order Now</a>
+            </div>
+
+            <button class="ad-nav-btn prev-btn project-prev" type="button" aria-label="Previous building project">&#10094;</button>
+            <button class="ad-nav-btn next-btn project-next" type="button" aria-label="Next building project">&#10095;</button>
+
+            <div class="slide-indicators">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
     </section>
 
     <section class="bg-alt">
@@ -81,11 +145,11 @@
         <div class="grid-4">
             <!-- Column 1: Brand Info -->
             <div class="footer-col">
-                <div class="logo" style="margin-bottom: 20px;">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
-                <p style="font-size: 0.9rem; margin-bottom: 20px;">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
+                <div class="logo footer-logo">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
+                <p class="footer-description">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/bldr-aliyu-mustapha-863a98b1/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BDidrW4V2QxCbMGUSMFq9VA%3D%3D"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-twitter"></i></a>
+                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-x-twitter"></i></a>
                     <a href="https://www.instagram.com/mochocks_constructionconcepts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=100063784490298"><i class="fab fa-facebook-f"></i></a>
                 </div>
@@ -123,7 +187,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Mochocks Construction Concepts. All rights reserved. | <a href="#" style="color: var(--accent-orange);">Privacy Policy</a></p>
+            <p>&copy; 2026 Mochocks Construction Concepts. All rights reserved. | <a href="#" class="privacy-link">Privacy Policy</a></p>
         </div>
     </footer>
 

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Mochocks Construction Concepts</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body class="bg-contact">
 
@@ -20,8 +21,8 @@
                 <button class="dropbtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
                 <div class="dropdown-content">
                     <a href="about.html">About Us</a>
-                    <a href="values.html">Core Values</a>
                     <a href="services.html">Services</a>
+                    <a href="values.html">Core Values</a>
                     <a href="contact.html">Contact Us</a>
                 </div>
             </div>
@@ -66,7 +67,7 @@
         </div>
     </section>
 
-    <section class="bg-alt" style="padding-top: 0; padding-bottom: 60px;">
+    <section class="bg-alt contact-gallery-section">
         <div class="image-grid">
             <div class="image-card">
                 <img src="Foundation_pic2.jpg" alt="Construction site with foundations and framing">
@@ -77,13 +78,13 @@
     </section>
 
     <!-- AI Chatbot UI ready for backend integration -->
-    <div class="chatbot-launcher" id="chatbotLauncher" role="button" tabindex="0" aria-label="Open chat support" onclick="toggleChatbot(); return false;">
+    <div class="chatbot-launcher" id="chatbotLauncher" role="button" tabindex="0" aria-label="Open chat support">
         <i class="fas fa-comments"></i>
     </div>
     <div class="chatbot-container" id="chatbotContainer">
         <div class="chat-header" id="chatbotHeader">
             <div class="chat-status"><div class="status-dot"></div>Mochocks Support AI</div>
-            <div class="chat-close" onclick="event.stopPropagation(); closeChatbot();">✖</div>
+            <div class="chat-close">✖</div>
         </div>
         <div class="chat-body" id="chatBody">
             <div class="message msg-ai" id="chatWelcome">Hello! I am the Mochocks virtual assistant. How can I help you with your construction project today?</div>
@@ -102,11 +103,11 @@
         <div class="grid-4">
             <!-- Column 1: Brand Info -->
             <div class="footer-col">
-                <div class="logo" style="margin-bottom: 20px;">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
-                <p style="font-size: 0.9rem; margin-bottom: 20px;">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
+                <div class="logo footer-logo">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
+                <p class="footer-description">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/bldr-aliyu-mustapha-863a98b1/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BDidrW4V2QxCbMGUSMFq9VA%3D%3D"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-twitter"></i></a>
+                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-x-twitter"></i></a>
                     <a href="https://www.instagram.com/mochocks_constructionconcepts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=100063784490298"><i class="fab fa-facebook-f"></i></a>
                 </div>
@@ -144,66 +145,9 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Mochocks Construction Concepts. All rights reserved. | <a href="#" style="color: var(--accent-orange);">Privacy Policy</a></p>
+            <p>&copy; 2026 Mochocks Construction Concepts. All rights reserved. | <a href="#" class="privacy-link">Privacy Policy</a></p>
         </div>
     </footer>
-
-    <script>
-        function toggleChatbot() {
-            var launcher = document.getElementById('chatbotLauncher');
-            var container = document.getElementById('chatbotContainer');
-            if (!launcher || !container) return;
-
-            if (container.classList.contains('active')) {
-                container.classList.remove('active');
-                launcher.classList.remove('active');
-                container.style.display = 'none';
-                container.style.visibility = 'hidden';
-            } else {
-                container.classList.add('active');
-                launcher.classList.add('active');
-                container.style.display = 'flex';
-                container.style.visibility = 'visible';
-                container.style.opacity = '1';
-                showTypingIndicator();
-            }
-        }
-
-        function closeChatbot() {
-            var launcher = document.getElementById('chatbotLauncher');
-            var container = document.getElementById('chatbotContainer');
-            if (!launcher || !container) return;
-
-            container.classList.remove('active');
-            launcher.classList.remove('active');
-            container.style.display = 'none';
-            container.style.visibility = 'hidden';
-            var indicator = document.getElementById('typingIndicator');
-            if (indicator) {
-                indicator.classList.remove('active');
-            }
-        }
-
-        function showTypingIndicator() {
-            var indicator = document.getElementById('typingIndicator');
-            var body = document.getElementById('chatBody');
-            if (!indicator || !body) return;
-
-            indicator.classList.add('active');
-            clearTimeout(window.chatTypingTimer);
-            window.chatTypingTimer = setTimeout(function () {
-                indicator.classList.remove('active');
-                var followUp = document.getElementById('chatFollowUp');
-                if (!followUp) {
-                    followUp = document.createElement('div');
-                    followUp.className = 'message msg-ai';
-                    followUp.id = 'chatFollowUp';
-                    followUp.textContent = 'We typically reply within one business day. What would you like to know about your project?';
-                    body.appendChild(followUp);
-                }
-            }, 1100);
-        }
-    </script>
 
 </body>
 </html>

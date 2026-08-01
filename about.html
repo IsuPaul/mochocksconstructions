@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Mochocks Construction Concepts</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -20,8 +21,8 @@
                 <button class="dropbtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
                 <div class="dropdown-content">
                     <a href="about.html">About Us</a>
-                    <a href="values.html">Core Values</a>
                     <a href="services.html">Services</a>
+                    <a href="values.html">Core Values</a>
                     <a href="contact.html">Contact Us</a>
                 </div>
             </div>
@@ -34,19 +35,38 @@
     </div>
 
     <section>
-        <div style="max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: #555;">
-            <p style="margin-bottom: 20px;">Mochocks Construction Concepts Limited is a trusted construction and real estate development company committed to delivering quality, innovation, and excellence in every project. We specialize in building construction, landscaping, renovation, land purchase, real estate development, facility management, swimming pool construction, and borehole drilling.</p>
+        <div class="about-copy">
+            <p class="about-copy-lead">Mochocks Construction Concepts Limited is a trusted construction and real estate development company committed to delivering quality, innovation, and excellence in every project. We specialize in building construction, landscaping, renovation, land purchase, real estate development, facility management, swimming pool construction, and borehole drilling.</p>
             <p>Our team combines professionalism, reliability, and a strong commitment to customer satisfaction to create lasting value for clients and communities.</p>
         </div>
 
-        <h2 class="section-title" style="margin-top: 60px;">Gallery</h2>
-        <div class="grid-3">
-            <img src="Gallery_pic.jpg" alt="Construction Site" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-            <img src="Gallery_pic2.jpg" alt="Engineering Plans" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-            <img src="Gallery_pic3.jpg" alt="Heavy Machinery" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+        <div class="ceo-profile">
+            <div class="ceo-photo-wrap">
+                <img src="Founder.jpg" alt="Bldr. Aliyu Mustapha, MD/CEO and Building Production Manager" class="ceo-photo">
+            </div>
+            <div class="ceo-details">
+                <p class="ceo-eyebrow">Leadership</p>
+                <h2>Bldr. Aliyu Mustapha</h2>
+                <h3>MD/CEO &amp; Building Production Manager</h3>
+                <p>With expertise spanning construction leadership and project delivery, Bldr. Aliyu Mustapha guides the company with a practical commitment to quality, efficiency, and dependable results.</p>
+                <div class="qualification-list">
+                    <span>Project Management</span>
+                    <span>Building Construction</span>
+                    <span>Procurement</span>
+                    <span>Quality Control Management</span>
+                    <span>Feasibility Studies</span>
+                </div>
+            </div>
         </div>
 
-        <h2 class="section-title" style="margin-top: 60px;">Structural Highlights</h2>
+        <h2 class="section-title section-title-spaced">Gallery</h2>
+        <div class="grid-3">
+            <img class="gallery-image" src="Gallery_pic.jpg" alt="Construction Site">
+            <img class="gallery-image" src="Gallery_pic2.jpg" alt="Engineering Plans">
+            <img class="gallery-image" src="Gallery_pic3.jpg" alt="Heavy Machinery">
+        </div>
+
+        <h2 class="section-title section-title-spaced">Structural Highlights</h2>
         <div class="image-grid">
             <div class="image-card">
                 <img src="Column_pic.jpg" alt="Reinforced building column">
@@ -66,11 +86,11 @@
         <div class="grid-4">
             <!-- Column 1: Brand Info -->
             <div class="footer-col">
-                <div class="logo" style="margin-bottom: 20px;">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
-                <p style="font-size: 0.9rem; margin-bottom: 20px;">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
+                <div class="logo footer-logo">MOCHOCKS<br><span>CONSTRUCTIONS</span></div>
+                <p class="footer-description">Setting the gold standard in structural integrity, advanced cementitious implementation, and heavy civil engineering across Nigeria.</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/bldr-aliyu-mustapha-863a98b1/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BDidrW4V2QxCbMGUSMFq9VA%3D%3D"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-twitter"></i></a>
+                    <a href="https://x.com/Mochocks?s=20"><i class="fab fa-x-twitter"></i></a>
                     <a href="https://www.instagram.com/mochocks_constructionconcepts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=100063784490298"><i class="fab fa-facebook-f"></i></a>
                 </div>
@@ -108,7 +128,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Mochocks Construction Concepts. All rights reserved. | <a href="#" style="color: var(--accent-orange);">Privacy Policy</a></p>
+            <p>&copy; 2026 Mochocks Construction Concepts. All rights reserved. | <a href="#" class="privacy-link">Privacy Policy</a></p>
         </div>
     </footer>
 
