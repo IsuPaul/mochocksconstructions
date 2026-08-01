@@ -27,19 +27,19 @@ header {
     background-color: #0a0c55; padding-left: 1px; padding-right: 15px;
     display: flex; justify-content: space-between; align-items: center;
     position: fixed; width: 100%; top: 0%; z-index: 1000;
-    height: 60px; box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    height: 70px; box-shadow: 0 2px 15px rgba(0,0,0,0.2);
 }
 .brand-link { 
     display: flex; align-items: center; gap: 12px; color: var(--text-light); font-weight: 700;
 }
 .brand-logo { 
-    height: 50px;
+    height: 60px;
     order: 1;
     margin-right: 0px;
     margin-left: 1px;
     /*height: 70px; width: auto; display: block; border-radius: 8px;*/ }
 .brand-label {
-    background-color: #0a0c55;
+    background-color: #0a0d5500;
     padding-bottom: 0;
     margin-bottom: 0;
     text-align: left;
