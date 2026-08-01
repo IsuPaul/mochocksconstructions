@@ -1306,6 +1306,54 @@ main .hero-section .hero-content p {
     font-size: 0.9rem;
     font-weight: 600;
 }
+/*Added to control phone view*/
+/* Mobile View Overrides */
+@media (max-width: 768px) {
+    .ceo-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Resets the 36px desktop grid gap so it doesn't apply between every text element */
+        gap: 0; 
+    }
+
+    /* Flattens the div so its children can be reordered individually alongside the photo */
+    .ceo-details {
+        display: contents;
+    }
+
+    .ceo-eyebrow {
+        order: 1;
+        margin-bottom: 16px; 
+    }
+
+    .ceo-photo-wrap {
+        order: 2;
+        width: 100%;
+        margin-bottom: 20px; /* Creates spacing before the H2 */
+    }
+
+    .ceo-details h2 {
+        order: 3;
+    }
+
+    .ceo-details h3 {
+        order: 4;
+        text-align: center; /* Centralizes the sub-heading */
+    }
+
+    .ceo-details > p:not(.ceo-eyebrow) {
+        order: 5;
+        text-align: center; /* Overrides the desktop left alignment */
+    }
+
+    .qualification-list {
+        order: 6;
+        justify-content: center; /* Centers the flex items */
+    }
+}
+/*Added to control phone view*/
+
 
 .section-title-spaced {
     margin-top: 60px;
