@@ -39,9 +39,9 @@ function initializeMainSlideshow() {
             };
         })
         : [
-            { title: 'Structural Framing', subtitle: 'Lease From $459/mo' },
-            { title: 'Building Construction', subtitle: '0.99% APR Available' },
-            { title: 'Completed Development', subtitle: 'Lease From $949/mo' }
+            { title: 'Structural Framing', subtitle: 'In progress' },
+            { title: 'Building Construction', subtitle: 'Not available yet' },
+            { title: 'Completed Development', subtitle: 'handed to client' }
         ];
     let currentSlideIndex = 0;
     let slideInterval;
