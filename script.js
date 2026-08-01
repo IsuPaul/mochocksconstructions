@@ -2,19 +2,75 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeHeroLandingSlideshow();
     initializeMainSlideshow();
     initializeAdvertSlideshow();
+    initializeGallerySlideshows();
     initializeChatbot();
 });
 
+// Global Helper Function for Touch Swipe Navigation
+function addSwipeListener(element, onSwipeLeft, onSwipeRight) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const threshold = 40; // Minimum distance to register as a swipe
+
+    element.addEventListener('touchstart', function (event) {
+        touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    element.addEventListener('touchend', function (event) {
+        touchEndX = event.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        if (touchStartX - touchEndX > threshold) {
+            onSwipeLeft();
+        }
+        if (touchEndX - touchStartX > threshold) {
+            onSwipeRight();
+        }
+    }
+}
+
 function initializeHeroLandingSlideshow() {
+    const container = document.querySelector('.header-home');
     const slides = document.querySelectorAll('.hero-landing-slide');
     if (!slides.length) return;
 
     let currentSlide = 0;
-    setInterval(function () {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
+    let slideInterval;
+
+    function updateSlide() {
+        slides.forEach(slide => slide.classList.remove('active'));
         slides[currentSlide].classList.add('active');
-    }, 5000);
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlide();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlide();
+    }
+
+    function startInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    startInterval();
+
+    // Add swipe functionality for touch devices
+    if (container) {
+        addSwipeListener(container, () => {
+            nextSlide();
+            startInterval();
+        }, () => {
+            prevSlide();
+            startInterval();
+        });
+    }
 }
 
 function initializeMainSlideshow() {
@@ -97,12 +153,23 @@ function initializeMainSlideshow() {
     }
 
     slideInterval = setInterval(nextSlide, 5000);
+
+    // Add swipe functionality for touch devices
+    const heroSection = slideshowScope.querySelector('.hero-section');
+    if (heroSection) {
+        addSwipeListener(heroSection, () => {
+            moveSlide(1);
+        }, () => {
+            moveSlide(-1);
+        });
+    }
 }
 
 function initializeAdvertSlideshow() {
     const slides = document.querySelectorAll('.ad-slide');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
+    const container = document.querySelector('.ad-carousel-container');
 
     if (!slides.length || !prevBtn || !nextBtn) return;
 
@@ -138,6 +205,68 @@ function initializeAdvertSlideshow() {
     });
 
     startAutoPlay();
+
+    // Add swipe functionality for touch devices
+    if (container) {
+        addSwipeListener(container, () => {
+            flipSlide(1);
+            resetAutoPlay();
+        }, () => {
+            flipSlide(-1);
+            resetAutoPlay();
+        });
+    }
+}
+
+// Transform pure CSS galleries into JS controllable slideshows to support swiping
+function initializeGallerySlideshows() {
+    const galleries = document.querySelectorAll('.slideshow, .slideshow-single');
+    
+    galleries.forEach(gallery => {
+        const images = gallery.querySelectorAll('img');
+        if (images.length <= 1) return;
+
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        // Override CSS animations with JavaScript control
+        images.forEach((img, index) => {
+            img.style.animation = 'none';
+            img.style.opacity = index === 0 ? '1' : '0';
+            img.style.transition = 'opacity 0.8s ease-in-out';
+        });
+
+        function showImage(index) {
+            images.forEach(img => img.style.opacity = '0');
+            images[index].style.opacity = '1';
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        function startAutoPlay() {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(nextImage, 5000);
+        }
+
+        startAutoPlay();
+
+        // Add swipe functionality for touch devices
+        addSwipeListener(gallery, () => {
+            nextImage();
+            startAutoPlay();
+        }, () => {
+            prevImage();
+            startAutoPlay();
+        });
+    });
 }
 
 function initializeChatbot() {
