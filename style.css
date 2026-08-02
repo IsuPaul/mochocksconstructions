@@ -1213,7 +1213,7 @@ main .hero-section .hero-content p {
 .cta-title {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: var(--nav-bg);
+    color: green;
 }
 
 .cta-copy {
