@@ -350,11 +350,11 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
 .chat-input-area button { border: none; background: var(--nav-bg); color: var(--text-light); border-radius: 999px; padding: 10px 14px; cursor: pointer; }
 
 .section-contact {
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 100px);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 110px 5% 80px;
+    padding: 70px 5% 40px;
 }
 
 .contact-shell {
@@ -958,7 +958,7 @@ body {
         right: auto;
         top: 60px;
         width: 30%;
-        height: 100%;
+        height:auto;
         margin-top: 0;
         border: 1px solid #e3e7eb;
         border-radius: 0;
@@ -1077,12 +1077,12 @@ body {
     }
 
     .section-contact {
-        padding: 60px 4% 60px;
+        padding: 30px 4% 30px;
     }
 
     .contact-intro,
     .contact-card {
-        padding: 24px;
+        padding: 20px;
     }
 
     .chatbot-container {
