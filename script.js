@@ -329,40 +329,106 @@ function initializeGallerySlideshows() {
 }
 
 function initializeChatbot() {
-    const launcher = document.getElementById('chatbotLauncher');
-    const container = document.getElementById('chatbotContainer');
-    const header = document.getElementById('chatbotHeader');
-    const closeButton = document.querySelector('.chat-close');
+    const launchers = document.querySelectorAll('#chatbotLauncher, .chatbot-launcher');
+    const container = document.getElementById('chatbotContainer') || document.querySelector('.chatbot-container');
+    const header = document.getElementById('chatbotHeader') || document.querySelector('.chat-header');
+    const closeButtons = document.querySelectorAll('.chat-close');
 
-    if (!launcher || !container) return;
+    if (launchers.length === 0 || !container) return;
 
-    launcher.addEventListener('click', function (event) {
-        event.preventDefault();
-        toggleChatbot();
-    });
+    launchers.forEach(function (launcher) {
+        makeDraggable(launcher, launcher, true);
 
-    launcher.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ') {
+        launcher.addEventListener('click', function (event) {
             event.preventDefault();
-            toggleChatbot();
-        }
+            // If the launcher was dragged, we block the click from opening the chatbot
+            if (launcher.dataset.dragged === 'true') return;
+            toggleChatbot(launcher);
+        });
+
+        launcher.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleChatbot(launcher);
+            }
+        });
     });
 
-    if (closeButton) {
+    closeButtons.forEach(function(closeButton) {
         closeButton.addEventListener('click', function (event) {
             event.stopPropagation();
             closeChatbot();
         });
+    });
+
+    // Make the opened chatbot container draggable by its header
+    if (header) makeDraggable(container, header, false);
+
+    const sendButton = container.querySelector('.chat-input-area button');
+    const chatInput = container.querySelector('.chat-input-area input');
+    const chatBody = document.getElementById('chatBody') || document.querySelector('.chat-body');
+
+    if (sendButton && chatInput && chatBody) {
+        const sendMessage = function (e) {
+            if (e) e.preventDefault();
+            const messageText = chatInput.value.trim();
+            if (messageText !== '') {
+                const userMsg = document.createElement('div');
+                userMsg.className = 'message';
+                userMsg.style.backgroundColor = '#2D7CB7';
+                userMsg.style.color = '#ffffff';
+                userMsg.style.marginLeft = 'auto';
+                userMsg.textContent = messageText;
+                
+                const indicator = document.getElementById('typingIndicator') || document.querySelector('.typing-indicator');
+                if (indicator) {
+                    chatBody.insertBefore(userMsg, indicator);
+                } else {
+                    chatBody.appendChild(userMsg);
+                }
+                
+                chatInput.value = '';
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        };
+
+        sendButton.addEventListener('click', sendMessage);
+        
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage(e);
+            }
+        });
     }
 
-    if (header) makeDraggable(container, header);
-
-    function toggleChatbot() {
+    function toggleChatbot(activeLauncher) {
         if (container.classList.contains('active')) {
-            closeChatbot();
+            closeChatbot(activeLauncher);
         } else {
             container.classList.add('active');
-            launcher.classList.add('active');
+            if (activeLauncher) {
+                activeLauncher.classList.add('active');
+                
+                // Position container dynamically if the launcher has been dragged around
+                if (activeLauncher.style.left || activeLauncher.style.top) {
+                    const rect = activeLauncher.getBoundingClientRect();
+                    const padding = 12;
+                    let left = rect.left;
+                    let top = rect.top - container.offsetHeight - 10;
+                    
+                    // Prevent it from going offscreen
+                    if (top < padding) top = rect.bottom + 10; 
+                    if (left + container.offsetWidth > window.innerWidth - padding) {
+                        left = window.innerWidth - container.offsetWidth - padding;
+                    }
+                    
+                    container.style.left = left + 'px';
+                    container.style.top = top + 'px';
+                    container.style.bottom = 'auto';
+                    container.style.right = 'auto';
+                }
+            }
             container.style.display = 'flex';
             container.style.visibility = 'visible';
             container.style.opacity = '1';
@@ -370,57 +436,89 @@ function initializeChatbot() {
         }
     }
 
-    function closeChatbot() {
+    function closeChatbot(activeLauncher) {
         container.classList.remove('active');
-        launcher.classList.remove('active');
+        if (activeLauncher) {
+            activeLauncher.classList.remove('active');
+        } else {
+            launchers.forEach(function(l) { l.classList.remove('active'); });
+        }
         container.style.display = 'none';
         container.style.visibility = 'hidden';
-        const indicator = document.getElementById('typingIndicator');
+        const indicator = document.getElementById('typingIndicator') || document.querySelector('.typing-indicator');
         if (indicator) indicator.classList.remove('active');
     }
 
     function showTypingIndicator() {
-        const indicator = document.getElementById('typingIndicator');
-        const body = document.getElementById('chatBody');
+        const indicator = document.getElementById('typingIndicator') || document.querySelector('.typing-indicator');
+        const body = document.getElementById('chatBody') || document.querySelector('.chat-body');
         if (!indicator || !body) return;
 
         indicator.classList.add('active');
         clearTimeout(window.chatTypingTimer);
         window.chatTypingTimer = setTimeout(function () {
             indicator.classList.remove('active');
-            if (!document.getElementById('chatFollowUp')) {
+            if (!document.getElementById('chatFollowUp') && !document.querySelector('.msg-ai#chatFollowUp')) {
                 const followUp = document.createElement('div');
                 followUp.className = 'message msg-ai';
                 followUp.id = 'chatFollowUp';
                 followUp.textContent = 'We typically reply within one business day. What would you like to know about your project?';
                 body.appendChild(followUp);
+                body.scrollTop = body.scrollHeight;
             }
         }, 1100);
     }
 
-    function makeDraggable(element, handle) {
+    function makeDraggable(element, handle, isLauncher) {
         let dragging = false;
+        let hasMoved = false;
         let offsetX = 0;
         let offsetY = 0;
+        let startX = 0;
+        let startY = 0;
+
+        handle.style.touchAction = 'none';
 
         handle.addEventListener('pointerdown', function (event) {
             if (event.target.closest('.chat-close')) return;
+            
             dragging = true;
+            hasMoved = false;
+            startX = event.clientX;
+            startY = event.clientY;
+            
             element.classList.add('dragging');
             const rect = element.getBoundingClientRect();
             offsetX = event.clientX - rect.left;
             offsetY = event.clientY - rect.top;
-            handle.setPointerCapture(event.pointerId);
+            
+            try { handle.setPointerCapture(event.pointerId); } catch(err) {}
         });
 
         handle.addEventListener('pointermove', function (event) {
             if (!dragging) return;
-            const maxLeft = window.innerWidth - element.offsetWidth - 12;
-            const maxTop = window.innerHeight - element.offsetHeight - 12;
-            const left = Math.max(12, Math.min(event.clientX - offsetX, maxLeft));
-            const top = Math.max(12, Math.min(event.clientY - offsetY, maxTop));
-            element.style.left = left + 'px';
-            element.style.top = top + 'px';
+            
+            if (!hasMoved && Math.abs(event.clientX - startX) < 5 && Math.abs(event.clientY - startY) < 5) {
+                return;
+            }
+            
+            hasMoved = true;
+            if (isLauncher) handle.dataset.dragged = 'true';
+
+            event.preventDefault(); // Prevents touch-scrolling while dragging
+
+            const padding = 12;
+            const maxLeft = window.innerWidth - element.offsetWidth - padding;
+            const maxTop = window.innerHeight - element.offsetHeight - padding;
+            
+            let newLeft = event.clientX - offsetX;
+            let newTop = event.clientY - offsetY;
+            
+            newLeft = Math.max(padding, Math.min(newLeft, maxLeft));
+            newTop = Math.max(padding, Math.min(newTop, maxTop));
+            
+            element.style.left = newLeft + 'px';
+            element.style.top = newTop + 'px';
             element.style.right = 'auto';
             element.style.bottom = 'auto';
         });
@@ -429,8 +527,15 @@ function initializeChatbot() {
             if (!dragging) return;
             dragging = false;
             element.classList.remove('dragging');
-            if (event.pointerId !== undefined) {
+            
+            if (event && event.pointerId !== undefined) {
                 try { handle.releasePointerCapture(event.pointerId); } catch (error) {}
+            }
+            
+            if (isLauncher && hasMoved) {
+                setTimeout(() => {
+                    handle.dataset.dragged = 'false';
+                }, 50);
             }
         }
 
