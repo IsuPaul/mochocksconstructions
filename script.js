@@ -34,6 +34,7 @@ function addSwipeListener(element, onSwipeLeft, onSwipeRight) {
 function initializeHeroLandingSlideshow() {
     const container = document.querySelector('.header-home');
     const slides = document.querySelectorAll('.hero-landing-slide');
+    const dots = container ? container.querySelectorAll('.slide-indicators .dot') : [];
     if (!slides.length) return;
 
     let currentSlide = 0;
@@ -42,6 +43,10 @@ function initializeHeroLandingSlideshow() {
     function updateSlide() {
         slides.forEach(slide => slide.classList.remove('active'));
         slides[currentSlide].classList.add('active');
+        if (dots.length) {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
     }
 
     function nextSlide() {
@@ -54,9 +59,21 @@ function initializeHeroLandingSlideshow() {
         updateSlide();
     }
 
+    function setSlide(index) {
+        currentSlide = index;
+        updateSlide();
+        startInterval();
+    }
+
     function startInterval() {
         clearInterval(slideInterval);
         slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    if (dots.length) {
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => setSlide(index));
+        });
     }
 
     startInterval();
@@ -170,17 +187,36 @@ function initializeAdvertSlideshow() {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const container = document.querySelector('.ad-carousel-container');
+    const dots = container ? container.querySelectorAll('.slide-indicators .dot') : [];
 
     if (!slides.length || !prevBtn || !nextBtn) return;
 
     let currentIndex = 0;
     let autoPlayInterval;
 
+    function updateDots() {
+        if (dots.length) {
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+        }
+    }
+
     function flipSlide(direction) {
         slides.forEach(slide => slide.classList.remove('active', 'outgoing'));
         slides[currentIndex].classList.add('outgoing');
         currentIndex = (currentIndex + direction + slides.length) % slides.length;
         slides[currentIndex].classList.add('active');
+        updateDots();
+    }
+
+    function setSlide(index) {
+        if (index === currentIndex) return;
+        slides.forEach(slide => slide.classList.remove('active', 'outgoing'));
+        slides[currentIndex].classList.add('outgoing');
+        currentIndex = index;
+        slides[currentIndex].classList.add('active');
+        updateDots();
+        resetAutoPlay();
     }
 
     function startAutoPlay() {
@@ -204,6 +240,12 @@ function initializeAdvertSlideshow() {
         resetAutoPlay();
     });
 
+    if (dots.length) {
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => setSlide(index));
+        });
+    }
+
     startAutoPlay();
 
     // Add swipe functionality for touch devices
@@ -224,6 +266,7 @@ function initializeGallerySlideshows() {
     
     galleries.forEach(gallery => {
         const images = gallery.querySelectorAll('img');
+        const dots = gallery.querySelectorAll('.slide-indicators .dot');
         if (images.length <= 1) return;
 
         let currentIndex = 0;
@@ -239,6 +282,10 @@ function initializeGallerySlideshows() {
         function showImage(index) {
             images.forEach(img => img.style.opacity = '0');
             images[index].style.opacity = '1';
+            if (dots.length) {
+                dots.forEach(dot => dot.classList.remove('active'));
+                if (dots[index]) dots[index].classList.add('active');
+            }
         }
 
         function nextImage() {
@@ -251,9 +298,21 @@ function initializeGallerySlideshows() {
             showImage(currentIndex);
         }
 
+        function setSlide(index) {
+            currentIndex = index;
+            showImage(currentIndex);
+            startAutoPlay();
+        }
+
         function startAutoPlay() {
             clearInterval(autoPlayInterval);
             autoPlayInterval = setInterval(nextImage, 5000);
+        }
+
+        if (dots.length) {
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => setSlide(index));
+            });
         }
 
         startAutoPlay();

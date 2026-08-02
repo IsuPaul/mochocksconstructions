@@ -7,6 +7,8 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
+html { scroll-behavior: smooth; }
+
 body { line-height: 1.6; color: var(--text-dark); padding-top: 30px; background: linear-gradient(rgba(244, 244, 247, 0.932), rgba(213, 228, 243, 0.72)), url('Column_pic2.jpg') center/cover fixed; text-align: center; }
 body.bg-light { background: var(--light-bg); }
 body.bg-contact {
@@ -37,7 +39,7 @@ header {
     order: 1;
     margin-right: 0px;
     margin-left: 1px;
-    /*height: 70px; width: auto; display: block; border-radius: 8px;*/ }
+}
 .brand-label {
     background-color: #0a0d5500;
     padding-bottom: 0;
@@ -48,7 +50,8 @@ header {
     margin-top: 0;
     font-weight: 800;
     font-size: 1.6rem;
-    text-transform: uppercase;/*font-size: 2rem; white-space: nowrap; color: #c396c7;*/ }
+    text-transform: uppercase;
+}
 .brand-part-one { color: #46cddf; }
 .brand-part-two { color: #ffffff; padding-left: 6px; }
 .brand-link:hover .brand-label { color: #695fa1; }
@@ -68,8 +71,7 @@ header {
     color: white;
     font-size: 1.5rem;
     display: none;
-    cursor: pointer;/*background: var(--nav-bg); color: var(--text-light); padding: 8px 15px;
-    font-size: 14px; border: 1px solid rgba(255,255,255,0.18); cursor: pointer; border-radius: 4px; font-weight: 700;*/
+    cursor: pointer;
 }
 .dropdown-content {
     display: flex; position: static; background-color: transparent;
@@ -139,7 +141,15 @@ header {
 
 /* --- Global Sections & Grids --- */
 section { padding: 40px 5%; }
-.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; font-weight: 800; color: var(--nav-bg); }
+
+.section-title, .about-summary-title, .cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    color: var(--nav-bg);
+    text-align: center;
+}
+
 section p,
 section li,
 section h3,
@@ -155,13 +165,12 @@ section .contact-card {
 }
 
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; align-items: center; }
-.grid-3 {  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; /*display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; */}
+.grid-3 {  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; }
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
 
 /* --- Cards --- */
 .card {
-    padding: 30px; background: rgba(255, 255, 255, 0.808); border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;/*background: white; padding: 40px 30px; border-radius: 12px; text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid var(--accent-orange);*/
+    padding: 30px; background: rgba(255, 255, 255, 0.808); border-radius: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;
 }
 .card:hover { transform: translateY(-5px); }
 .card-services { background: #F4F7F6; border-bottom: none; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; }
@@ -185,7 +194,7 @@ section .contact-card {
 }
 .image-card {
     background: #fff;
-    border-radius: 16px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
@@ -220,7 +229,7 @@ section .contact-card {
     object-fit: cover;
     opacity: 0;
     animation: slideshowFade 20s ease-in-out infinite;
-    border-radius: 12px;
+    border-radius: 0;
 }
 .slideshow img:nth-child(1) { animation-delay: 0s; }
 .slideshow img:nth-child(2) { animation-delay: 10s; }
@@ -245,6 +254,7 @@ section .contact-card {
     width: 100%;
     aspect-ratio: 4 / 3;
     overflow: hidden;
+    border-radius: 0;
 }
 .slideshow-single img {
     position: absolute;
@@ -429,6 +439,7 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
     flex-direction: column;
     gap: 14px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .contact-card input,
@@ -544,7 +555,6 @@ footer { background-color: var(--footer-bg); color: #bdc3c7; padding: 70px 10% 3
   margin: 0 auto;
   overflow: hidden;
   background-color: #000;
-    border: 6px solid var(--nav-bg);
     box-shadow: 0 12px 28px rgba(0,0,0,0.18);
 }
 
@@ -863,6 +873,8 @@ body {
 .slide-indicators {
     position: absolute;
     bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 12px;
     z-index: 10;
@@ -941,20 +953,29 @@ body {
 
     .dropdown-content {
         display: none;
-        position:absolute;
-        left: auto;
-        right: 12px;
-        top: calc(100% + 6px);
-        width: min(80px, 78vw);
+        position: fixed;
+        left: 0;
+        right: auto;
+        top: 60px;
+        width: 30%;
+        height: 100%;
         margin-top: 0;
         border: 1px solid #e3e7eb;
-        border-radius: 10px;
+        border-radius: 0;
         overflow: hidden;
+        background-color: rgba(104, 150, 142, 0.938);
     }
 
     .dropdown-content a {
         padding: 10px 12px;
         font-size: 13px;
+    }
+
+    .dropdown-content a:hover,
+    .dropdown-content a:active,
+    .dropdown-content a:focus {
+        color: red !important;
+        background-color: white;
     }
 
     .header-home {
@@ -991,10 +1012,10 @@ body {
     }
 
     section {
-        padding: 60px 5%;
+        padding: 40px 5%;
     }
 
-    .section-title {
+    .section-title, .about-summary-title, .cta-title {
         font-size: 1.8rem;
     }
 
@@ -1024,21 +1045,29 @@ body {
         gap: 12px !important;
     }
 
+    .hero-section .hero-content,
+    .building-projects-section .hero-content,
     main .hero-section .hero-content {
-        max-width: 82%;
-        padding: 10px 16px;
+        max-width: 80%;
+        padding: 8px 12px;
     }
 
+    .hero-section .hero-content h1,
+    .building-projects-section .hero-content h1,
     main .hero-section .hero-content h1 {
-        font-size: 1.5rem;
-        margin-bottom: 6px;
+        font-size: 1.1rem;
+        margin-bottom: 4px;
     }
 
+    .hero-section .hero-content p,
+    .building-projects-section .hero-content p,
     main .hero-section .hero-content p {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        line-height: 1.3;
     }
 
-    .image-card img {
+    .image-card img,
+    .slideshow {
         height: 180px;
     }
 
@@ -1048,7 +1077,7 @@ body {
     }
 
     .section-contact {
-        padding: 90px 4% 90px;
+        padding: 60px 4% 60px;
     }
 
     .contact-intro,
@@ -1133,29 +1162,11 @@ main .hero-section .hero-content p {
     color: #ffffff;
 }
 
-.about-summary-title {
-    font-size: 2.5rem;
-    color: var(--nav-bg);
-    margin-bottom: 20px;
-    font-weight: 800;
-}
-
 .about-summary-copy {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 20px;
     text-align: justify;
-}
-
-.slideshow-single {
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.slideshow-single img {
-    display: block;
 }
 
 .section-intro {
@@ -1165,19 +1176,13 @@ main .hero-section .hero-content p {
     color: #555;
 }
 
-.value-icon {
-    font-size: 3rem;
-    color: var(--accent-orange);
-    margin-bottom: 20px;
-}
-
 .value-card-image {
     display: block;
     width: 100%;
-    height: 160px;
+    height: 320px;
     object-fit: cover;
     margin: 0 auto 16px;
-    border-radius: 10px;
+    border-radius: 0;
 }
 
 .card-copy-offset {
@@ -1194,12 +1199,6 @@ main .hero-section .hero-content p {
     border-color: var(--nav-bg);
 }
 
-.service-icon {
-    font-size: 2.5rem;
-    color: var(--primary-blue);
-    margin-bottom: 15px;
-}
-
 .service-title {
     color: var(--primary-blue);
     margin-bottom: 10px;
@@ -1207,12 +1206,14 @@ main .hero-section .hero-content p {
 
 .cta-section {
     text-align: center;
-    padding: 100px 10%;
+    padding: 60px 10%;
 }
 
+/* I added it*/
 .cta-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 20px;
+    color: var(--nav-bg);
 }
 
 .cta-copy {
@@ -1356,12 +1357,12 @@ main .hero-section .hero-content p {
 
 
 .section-title-spaced {
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .gallery-image {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 0;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
@@ -1369,12 +1370,6 @@ main .hero-section .hero-content p {
     color: var(--primary-blue);
     font-size: 1.4rem;
     margin-bottom: 15px;
-}
-
-.value-icon-large {
-    font-size: 3.5rem;
-    color: var(--accent-orange);
-    margin-bottom: 20px;
 }
 
 .value-title {
@@ -1392,6 +1387,8 @@ main .hero-section .hero-content p {
     margin-bottom: 20px;
     justify-content: center;
     text-align: center;
+    color: var(--nav-bg);
+    font-size: 1.25rem;
 }
 
 .footer-description {
